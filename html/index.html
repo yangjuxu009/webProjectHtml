@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自由选择</title>
+    <style type="text/css">
+        body, html, div {
+            padding: 0;
+            margin: 0;
+        }
+
+        .contentTop, .contentFoot {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            justify-content: space-between;
+        }
+
+        .contentFoot img {
+            width: 350px;
+        }
+
+        #flashDiv {
+            flex: 1;
+        }
+
+        .contentDiv {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<!--<div id="hello"></div>-->
+<div>
+    <div id="contentTitle" style="height: 50px;background: #cccccc;text-align: center;line-height: 50px">indexPage</div>
+    <div class="contentTop">
+
+        <div id="flashDiv">
+        </div>
+    </div>
+    <div id="contentTop">热点新闻</div>
+    <div class="contentDiv">
+
+        <div>
+            <div id="contentDiv_a1"></div>
+            <div id="contentDiv_a_tex1" style="text-align: center">图片1</div>
+        </div>
+        <div>
+            <div id="contentDiv_a2"></div>
+            <div id="contentDiv_a_tex2" style="text-align: center">图片2</div>
+        </div>
+        <div>
+            <div id="contentDiv_a3"></div>
+            <div id="contentDiv_a_tex3" style="text-align: center">图片3</div>
+        </div>
+        <div>
+            <div id="contentDiv_a4"></div>
+            <div id="contentDiv_a_tex4" style="text-align: center">图片4</div>
+        </div>
+    </div>
+    <div class="contentFoot">
+        <div><img src="../img/9105-iepyyhi0662293.jpg" alt=""></div>
+        <div><img src="../img/ece5-iepyyhi0669978.jpg" alt=""></div>
+        <div><img src="../img/ece5-iepyyhi0669978.jpg" alt=""></div>
+        <div><img src="../img/b316-iepyyhi0695224.jpg" alt=""></div>
+    </div>
+</div>
+<div style="height: 50px;background: grey;text-align: center;line-height: 50px">
+    欢迎关注
+</div>
+
+<body>
+</body>
+
+<script type="text/javascript" src="../js/Util/jquery.js"></script>
+<script type="text/javascript" src="../js/Util/jqueryflash.js"></script>
+<script type="text/javascript">
+    $("#contentTop").on("click", function () {
+
+        self.location = "pageHtml1.html";
+    });
+    for (var i = 1; i <= 4; i++) {
+        var strs = "#contentDiv_a" + i;
+
+
+        $(strs).flash({
+            src: 'flashtimes.swf',
+            width: 320,
+            height: 240
+        });
+        ;(function (i) {
+            var pageStrs = "pageHtml" + (i + 1) + ".html";
+            var strs2 = "contentDiv_a_tex" + i;
+            document.getElementById(strs2).onclick = function () {
+                self.location = pageStrs;
+            }
+            /*   $(strs1).on("click", function () {
+
+            debugger
+
+            self.location=pageStrs;
+            });*/
+        })(i)
+    }
+
+    $('#flashDiv').flash({
+        src: 'flashtimes.swf',
+        width: "100%",
+        height: 240
+    });
+
+</script>
+
+</html>
